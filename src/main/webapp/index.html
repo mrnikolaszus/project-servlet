@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tic-Tac-Toe</title>
+    <link href="static/main.css" rel="stylesheet">
+
+    <
+</head>
+<body>
+
+
+<div class="page" >
+
+    <header class = 'header'>
+        <h2>Tic-Tac-Toe</h2>
+        <h4>You Can't Win!</h4>
+    </header>
+    <div class="info">
+        <input class="button" type="button" onclick="location.href='/start';" value="START GAME" />
+    </div>
+
+
+
+
+
+
+
+
+    <script>
+        function start() {
+            $.ajax({
+                url: '/start',
+                type: 'GET',
+                contentType: 'application/json;charset=UTF-8',
+                async: false,
+                success: function () {
+                    location.reload();
+                }
+            });
+        }
+    </script>
+</div>
+</body>
+</html>

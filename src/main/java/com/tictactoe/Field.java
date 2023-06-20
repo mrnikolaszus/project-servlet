@@ -26,10 +26,117 @@ public class Field {
     }
 
     public int getEmptyFieldIndex() {
-        return field.entrySet().stream()
+        int cross = field.entrySet().stream()
+                .filter(e -> e.getValue() == Sign.CROSS)
+                .map(Map.Entry::getKey)
+                .findFirst().orElse(-1);
+
+        int emp = field.entrySet().stream()
                 .filter(e -> e.getValue() == Sign.EMPTY)
                 .map(Map.Entry::getKey)
                 .findFirst().orElse(-1);
+
+        if (emp == -1) {
+            return -1;
+        }
+        if(field.get(0) == Sign.CROSS){
+
+        }
+        if (field.get(4) == Sign.EMPTY) {
+            return 4;
+        }
+        if (field.get(4) == Sign.NOUGHT){
+            // zig
+            if(field.get(8) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(7) == Sign.EMPTY){
+                return 7;
+            }
+            if(field.get(0) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(1) == Sign.EMPTY){
+                return 1;
+            }
+            if(field.get(2) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(1) == Sign.EMPTY){
+                return 1;
+            }
+
+
+            if(field.get(2) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(5) == Sign.EMPTY){
+                return 5;
+            }
+            if(field.get(6) == Sign.CROSS && field.get(0) == Sign.CROSS && field.get(3) == Sign.EMPTY){
+                return 3;
+            }
+
+            // straight
+            if(field.get(0) == Sign.CROSS && field.get(1) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+            if(field.get(2) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(8) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            if(field.get(8) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(6) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(6) == Sign.CROSS && field.get(3) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+            if(field.get(0) == Sign.CROSS && field.get(3) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+
+            //side by 1
+
+        }
+
+        //cross in middle
+        if(field.get(4) == Sign.CROSS){
+            if(field.get(2) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(5) == Sign.EMPTY){
+                return 5;
+            }
+            if(field.get(2) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(5) == Sign.EMPTY){
+                return 5;
+            }
+
+            if(field.get(0) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(7) == Sign.EMPTY){
+                return 7;
+            }
+            if(field.get(2) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(5) == Sign.EMPTY){
+                return 5;
+            }
+            if(field.get(5) == Sign.CROSS && field.get(3) == Sign.EMPTY){
+                return 3;
+            }
+            if(field.get(6) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            if(field.get(7) == Sign.CROSS && field.get(1) == Sign.EMPTY){
+                return 1;
+            }
+            if(field.get(8) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+        }
+
+        if (field.get(4) == Sign.NOUGHT && field.get(0) == Sign.EMPTY) {
+            return 0;
+        }
+        if (field.get(4) == Sign.NOUGHT && field.get(8) == Sign.EMPTY) {
+            return 8;
+        }
+        return emp;
     }
 
     public List<Sign> getFieldData() {
