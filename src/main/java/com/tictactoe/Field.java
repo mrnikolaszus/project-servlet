@@ -39,13 +39,170 @@ public class Field {
         if (emp == -1) {
             return -1;
         }
-        if(field.get(0) == Sign.CROSS){
 
+
+        if(field.get(0) == Sign.NOUGHT && field.get(1) == Sign.NOUGHT && field.get(2) == Sign.EMPTY){
+            return 2;
         }
+        if(field.get(2) == Sign.NOUGHT && field.get(1) == Sign.NOUGHT && field.get(0) == Sign.EMPTY){
+            return 0;
+        }
+
+        if(field.get(0) == Sign.NOUGHT && field.get(2) == Sign.NOUGHT && field.get(1) == Sign.EMPTY){
+            return 1;
+        }
+
+        if(field.get(3) == Sign.NOUGHT && field.get(4) == Sign.NOUGHT && field.get(5) == Sign.EMPTY){
+            return 5;
+        }
+        if(field.get(4) == Sign.NOUGHT && field.get(5) == Sign.NOUGHT && field.get(3) == Sign.EMPTY){
+            return 3;
+        }
+        if(field.get(5) == Sign.NOUGHT && field.get(3) == Sign.NOUGHT && field.get(4) == Sign.EMPTY){
+            return 4;
+        }
+
+
+        if(field.get(6) == Sign.NOUGHT && field.get(7) == Sign.NOUGHT && field.get(8) == Sign.EMPTY){
+            return 8;
+        }
+        if(field.get(7) == Sign.NOUGHT && field.get(8) == Sign.NOUGHT && field.get(6) == Sign.EMPTY){
+            return 6;
+        }
+        if(field.get(8) == Sign.NOUGHT && field.get(6) == Sign.NOUGHT && field.get(7) == Sign.EMPTY){
+            return 7;
+        }
+        if(field.get(0) == Sign.NOUGHT && field.get(3) == Sign.NOUGHT && field.get(6) == Sign.EMPTY){
+            return 6;
+        }
+        if(field.get(3) == Sign.NOUGHT && field.get(6) == Sign.NOUGHT && field.get(0) == Sign.EMPTY){
+            return 0;
+        }
+        if(field.get(6) == Sign.NOUGHT && field.get(0) == Sign.NOUGHT && field.get(3) == Sign.EMPTY){
+            return 3;
+        }
+        if(field.get(1) == Sign.NOUGHT && field.get(4) == Sign.NOUGHT && field.get(7) == Sign.EMPTY){
+            return 7;
+        }
+        if(field.get(4) == Sign.NOUGHT && field.get(7) == Sign.NOUGHT && field.get(1) == Sign.EMPTY){
+            return 1;
+        }
+        if(field.get(7) == Sign.NOUGHT && field.get(1) == Sign.NOUGHT && field.get(4) == Sign.EMPTY){
+            return 4;
+        }
+        if(field.get(2) == Sign.NOUGHT && field.get(5) == Sign.NOUGHT && field.get(8) == Sign.EMPTY){
+            return 8;
+        }
+        if(field.get(5) == Sign.NOUGHT && field.get(8) == Sign.NOUGHT && field.get(2) == Sign.EMPTY){
+            return 2;
+        }
+        if(field.get(8) == Sign.NOUGHT && field.get(2) == Sign.NOUGHT && field.get(5) == Sign.EMPTY){
+            return 5;
+        }
+        if(field.get(0) == Sign.NOUGHT && field.get(4) == Sign.NOUGHT && field.get(8) == Sign.EMPTY){
+            return 8;
+        }
+        if(field.get(4) == Sign.NOUGHT && field.get(8) == Sign.NOUGHT && field.get(0) == Sign.EMPTY){
+            return 0;
+        }
+        if(field.get(8) == Sign.NOUGHT && field.get(0) == Sign.NOUGHT && field.get(4) == Sign.EMPTY){
+            return 4;
+        }
+
+        if(field.get(2) == Sign.NOUGHT && field.get(4) == Sign.NOUGHT && field.get(6) == Sign.EMPTY){
+            return 6;
+        }
+        if(field.get(4) == Sign.NOUGHT && field.get(6) == Sign.NOUGHT && field.get(2) == Sign.EMPTY){
+            return 2;
+        }
+        if(field.get(6) == Sign.NOUGHT && field.get(2) == Sign.NOUGHT && field.get(4) == Sign.EMPTY){
+            return 4;
+        }
+
+
         if (field.get(4) == Sign.EMPTY) {
             return 4;
         }
         if (field.get(4) == Sign.NOUGHT){
+            //peroneNextStep
+            if(field.get(1) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(7) == Sign.EMPTY){
+                return 7;
+            }
+            if(field.get(5) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(0) == Sign.CROSS && field.get(3) == Sign.EMPTY){
+                return 3;
+            }
+            if(field.get(7) == Sign.CROSS && field.get(0) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(1) == Sign.EMPTY){
+                return 1;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(5) == Sign.EMPTY){
+                return 5;
+            }
+
+            //peroneRes
+            if(field.get(1) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(0) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+            if(field.get(0) == Sign.CROSS && field.get(1) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            //perone
+            if(field.get(7) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            if(field.get(9) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(5) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(2) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
+            if(field.get(0) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+
+
+            //trian
+            if(field.get(1) == Sign.CROSS && field.get(5) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
+            if(field.get(5) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(8) == Sign.EMPTY){
+                return 8;
+            }
+            if(field.get(3) == Sign.CROSS && field.get(7) == Sign.CROSS && field.get(6) == Sign.EMPTY){
+                return 6;
+            }
+            if(field.get(1) == Sign.CROSS && field.get(3) == Sign.CROSS && field.get(0) == Sign.EMPTY){
+                return 0;
+            }
             // zig
             if(field.get(8) == Sign.CROSS && field.get(6) == Sign.CROSS && field.get(7) == Sign.EMPTY){
                 return 7;
@@ -91,12 +248,15 @@ public class Field {
                 return 6;
             }
 
-            //side by 1
+
 
         }
 
         //cross in middle
         if(field.get(4) == Sign.CROSS){
+            if(field.get(4) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(2) == Sign.EMPTY){
+                return 2;
+            }
             if(field.get(2) == Sign.CROSS && field.get(8) == Sign.CROSS && field.get(5) == Sign.EMPTY){
                 return 5;
             }
