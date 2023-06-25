@@ -1,5 +1,9 @@
 package com.tictactoe;
 
+import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +16,7 @@ import java.util.List;
 
 @WebServlet (name = "LogicServlet", value = "/logic")
 public class LogicServlet extends HttpServlet {
-
+    private static final Logger log = LogManager.getLogger(LogicServlet.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -67,6 +71,7 @@ public class LogicServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/start.jsp");
         }
         if(Field.class != field.getClass()){
+            log.error("session fail");
             session.invalidate();
             throw new RuntimeException("Session is broken, try one more time");
         }
@@ -90,6 +95,7 @@ public class LogicServlet extends HttpServlet {
             session.setAttribute("data", data);
 
             res.sendRedirect("/index.jsp");
+            log.info("winner is: {}", winner);
             return true;
 
         }
