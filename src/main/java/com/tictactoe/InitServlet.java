@@ -28,15 +28,6 @@ public class InitServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         var session = req.getSession(true);
-//        System.out.println(Files.createDirectories(Paths.get("/Your/Path/Here")));
-//
-//        var file = new File("/Your/Path/Here/test.html");
-//
-//        try{  file.createNewFile(); } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println(file);
-
 
         var field = new Field();
         session.setAttribute("winner", Sign.EMPTY);
