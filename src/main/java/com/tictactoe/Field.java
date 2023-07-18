@@ -1,11 +1,14 @@
 package com.tictactoe;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 public class Field {
+
     private final Map<Integer, Sign> field;
 
     public Field() {
